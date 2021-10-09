@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Row,
   Col,
@@ -20,8 +20,6 @@ const Forms = (props) => {
     setShow(false);
   }
 
-  function handleInput() {}
-
   const copyUri = async () => {
     await navigator?.clipboard?.writeText(uri);
     alert("URL Copied to your clipboard");
@@ -32,14 +30,14 @@ const Forms = (props) => {
     await navigator?.clipboard?.writeText(pre);
     alert("Config object copied to your clipboard!");
   };
-  useEffect(() => {}, []);
+ 
 
   return (
     <Row>
       <Col md={8} className="border rounded p-3">
         <div className="text-center text-black text-center bold">
           <img 
-              src="./Unlock-WordMark.png" 
+              src="https://raw.githubusercontent.com/unlock-protocol/unlock/d29e411dd8d65ef638b8b9dc8172d36e761fb3d6/design/brand/Unlock-WorkMark.svg" 
               alt="unlock" 
               width='60%'
               height='10%'
@@ -408,7 +406,5 @@ const Forms = (props) => {
   );
 };
 
-//https://app.unlock-protocol.com/checkout?redirectUri=https%3A%2F%2Fwww.google.com&paywallConfig=%7B%22locks%22%3A%7B%220x6dDcB553E1A7f06bb46fA9Bd65BEd73056649eb6%22%3A%7B%22network%22%3A4%7D%7D%2C%22pessimistic%22%3Atrue%2C%22persistentCheckout%22%3Atrue%2C%22icon%22%3A%22https%3A%2F%2Flocksmith.unlock-protocol.com%2Flock%2F0x6dDcB553E1A7f06bb46fA9Bd65BEd73056649eb6%2Ficon%22%7D
-//https://app.unlock-protocol.com/checkout?redirectUri=https%3A%2F%2Fwww.google.com&paywallConfig=%7B%0A%20%20%22pessimistic%22%3A%20%22false%22%2C%0A%20%20%22locks%22%3A%20%7B%0A%20%20%20%20%220x6dDcB553E1A7f06bb46fA9Bd65BEd73056649eb6%22%3A%20%7B%0A%20%20%20%20%20%20%22network%22%3A%20%221%22%2C%0A%20%20%20%20%20%20%22name%22%3A%20%22manyrios56%22%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20%22icon%22%3A%20%22https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F4c%2FTypescript_logo_2020.svg%2F300px-Typescript_logo_2020.svg.png%22%2C%0A%20%20%22callToAction%22%3A%20%7B%0A%20%20%20%20%22default%22%3A%20%22Please%20go%20here%20to%20pick%20up%20my%20dog%20tag%22%0A%20%20%7D%2C%0A%20%20%22metadataInputs%22%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22name%22%3A%20%22Your%20Birthday%22%2C%0A%20%20%20%20%20%20%22type%22%3A%20%22date%22%2C%0A%20%20%20%20%20%20%22required%22%3A%20%22true%22%2C%0A%20%20%20%20%20%20%22defaultValue%22%3A%20%2205%2F27%2F1989%22%2C%0A%20%20%20%20%20%20%22public%22%3A%20%22false%22%0A%20%20%20%20%7D%0A%20%20%5D%0A%7D
 export default Forms;
 
