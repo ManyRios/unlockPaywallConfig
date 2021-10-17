@@ -15,7 +15,7 @@ export const networks = {
 
 export const labels = {
   icon: "Icon URL(optional):",
-  default: "Set a Message(optional):",
+  defaultValueCall: "Set a Message(optional):",
   referrer: "Referrer(optional):",
 };
 
