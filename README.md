@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Getting Started
+First, install all dependencies in package.json
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+yarn install 
 
-## Available Scripts
+& 
 
-In the project directory, you can run:
+yarn start http://localhost:3000 with your browser to see the result.
 
-### `yarn start`
+You can start editing the page by modifying src/app.js. The page auto-updates as you edit the file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Add to a static page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ run yarn build to produce a minified build.
 
-### `yarn test`
+Create a folder to hold the three files your application needs to run. I named mine dist. You will need these three files:
+* The file holding roughly a minified version of the libraries you are using.
+  ``` 
+    ./build/static/js/2.<someUniqueNumbers>.chunk.js
+  ```
+* The file holding a minified version of your code.
+  ```
+  ./build/static/js/main.<someUniqueNumbers>.chunk.js
+  ```
+* The file holding the code to launch your application.
+  ```
+  ./build/static/js/runtime-main.<someUniqueNumbers>.js
+  ```
+ We can call our new static assets as JS files and point our React widget to mount a "div" on yout website.
+ ```
+  <body>
+    <h1>Unlock Demo</h1>
+    
+    <div id="paywallConfig"></div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+    <script src="dist/2.567483bd.chunk.js"></script>
+    <script src="dist/main.a9bfd85f.chunk.js"></script>
+    <script src="dist/runtime-main.e1b710a3.js"></script>
+  </body>
+ ```
+  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Sample embedded code in html: 
+[test.html](https://github.com/ManyRios/unlock/blob/paywall-js/paywall/paywallconfig/test.html)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Fill the form: 
 
-### `yarn eject`
+- Select a network for your lock(Mainnet, xDai, Polygon, Rinkeby)
+- Add your existing lock address
+- Add a name for your lock(optional)
+YOU CAN ADD MULTIPLE LOCKS IF YOU WISH
+- Add a valid URL image for your icon
+- Set a message for your customers 
+- Add a referrer Code 
+- Set the messimistic feature
+- If you want to collect metadata from your customers you can add multiple of them. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Please visit this link for the final form 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Paywall Config Example](https://unlock-paywall-config.vercel.app/)
