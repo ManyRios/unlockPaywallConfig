@@ -8,23 +8,24 @@ import {
   Button,
 } from "react-bootstrap";
 import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
-import { initialValues, networks, labels, genJson, genUrl, validateField } from "./config";
+import { initialValues, networks, labels, genJson, genUrl, validateField, calltoAction } from "./config";
 
 const Forms = (props) => {
-  const [show, setShow] = useState();
-  const [json, setJson] = useState();
-  const [uri, setUri] = useState();
-  const [input, setInput] = useState(false);
+  const [show, setShow] = useState();//state for modal window
+  const [json, setJson] = useState(); //state for update the json 
+  const [uri, setUri] = useState(); // state for update the uri 
+  const [input, setInput] = useState(false); // state to show or not the metadata form 
 
+  //handle modal window
   function handleClose() {
     setShow(false);
   }
-
+// copy the generated uri in the modal window
   const copyUri = async () => {
     await navigator?.clipboard?.writeText(uri);
     alert("URL Copied to your clipboard");
   };
-
+// copy the generated json in the modal window
   const copyConfig = async () => {
     const pre = document.getElementById("jsonInfo").innerText;
     await navigator?.clipboard?.writeText(pre);
@@ -58,7 +59,7 @@ const Forms = (props) => {
           }}
         >
           {({ isSubmitting, values }) => (
-            <Form>
+            <Form>{/* Array for lock or multiple locks*/}
               <FieldArray name="locks">
                 {({ insert, remove, push }) => (
                   <div>
@@ -77,7 +78,7 @@ const Forms = (props) => {
                                 type="radio"
                                 name={`locks.${index}.network`}
                                 id="gridRadios"
-                                value={i.toString()}
+                                value={i}
                               />
                               <label
                                 className="form-check-label"
@@ -136,7 +137,7 @@ const Forms = (props) => {
                       variant={"secondary"}
                       className="mb-3"
                       onClick={() =>
-                        push({ name: "", address: "", network: "1" })
+                        push({ name: "", address: "", network: 1 })
                       }
                     >
                       Add more locks
@@ -155,6 +156,20 @@ const Forms = (props) => {
                   />
                 </div>
               ))}
+              <div className="form-group border p-2 mt-2">
+                <label htmlFor="">Set a Message to your buyers(optional):</label>
+                {Object.keys(calltoAction).map((i) => (
+                  <div clasName="form-group " key={i}>
+                    <label htmlFor="" className="text-capitalize">{`${i}:`}</label>
+                    <Field
+                      name={`calltoAction.${i}`}
+                      className="form-control"
+                      type="text"
+                      placeholder={ i === "default" ? "Please Join this membership" : ""}
+                    />
+                  </div>
+                ))}
+              </div>
 
               <div className="form-group">
                 <label htmlFor="pessimistic">
@@ -194,7 +209,7 @@ const Forms = (props) => {
                   </div>
                 ))}
               </div>
-              <Row className="form-group mt-3">
+              <Row className="form-group mt-3 border ">
                 <label htmlFor="" className="mb-1">
                   <h6>Meta Inputs(optional)</h6>
                 </label>
@@ -204,6 +219,7 @@ const Forms = (props) => {
                   </Button>
                  :
                  <FieldArray name="metadataInputs">
+                   {/* Array for metadata form or multiple metadata*/}
                  {({ insert, remove, push }) => (
                    <div>
                      {values.metadataInputs.length >= 0 &&
