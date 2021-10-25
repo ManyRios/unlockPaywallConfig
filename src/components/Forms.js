@@ -137,7 +137,7 @@ const Forms = (props) => {
                       variant={"secondary"}
                       className="mb-3"
                       onClick={() =>
-                        push({ name: "", address: "", network: 1 })
+                        push({ name: "", address: "", network: "1" })
                       }
                     >
                       Add more locks
