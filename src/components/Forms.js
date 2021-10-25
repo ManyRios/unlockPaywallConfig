@@ -70,7 +70,7 @@ const Forms = (props) => {
                           <br />
                           {Object.keys(networks).map((i) => (
                             <div
-                              class="form-check form-check-inline"
+                              className="form-check form-check-inline"
                               key={networks[i]}
                             >
                               <Field
@@ -147,7 +147,7 @@ const Forms = (props) => {
               </FieldArray>
 
               {Object.keys(labels).map((i) => (
-                <div clasName="form-group " key={i}>
+                <div className="form-group " key={i}>
                   <label htmlFor="">{labels[i]}</label>
                   <Field
                     name={i}
@@ -159,7 +159,7 @@ const Forms = (props) => {
               <div className="form-group border p-2 mt-2">
                 <label htmlFor="">Set a Message to your buyers(optional):</label>
                 {Object.keys(calltoAction).map((i) => (
-                  <div clasName="form-group " key={i}>
+                  <div className="form-group " key={i}>
                     <label htmlFor="" className="text-capitalize">{`${i}:`}</label>
                     <Field
                       name={`calltoAction.${i}`}
@@ -191,14 +191,14 @@ const Forms = (props) => {
                 <br />
 
                 {["false", "true"].map((val) => (
-                  <div class="form-check form-check-inline">
+                  <div className="form-check form-check-inline" key={val}>
                     <Field
                       className="form-check-input"
                       type="radio"
                       name="pessimistic"
                       id="gridRadios"
                       value={val}
-                      key={val}
+                      
                     />
                     <label
                       className="form-check-label text-capitalize"
@@ -231,7 +231,7 @@ const Forms = (props) => {
                              {["text", "date", "color", "email", "url"].map(
                                (i) => (
                                  <div
-                                   class="form-check form-check-inline"
+                                   className="form-check form-check-inline"
                                    key={i}
                                  >
                                    <Field
@@ -278,7 +278,7 @@ const Forms = (props) => {
                              <br />
                              {["true", "false"].map((i) => (
                                <div
-                                 class="form-check form-check-inline"
+                                 className="form-check form-check-inline"
                                  key={i}
                                >
                                  <Field
@@ -319,7 +319,7 @@ const Forms = (props) => {
                              <br />
                              {["true", "false"].map((i) => (
                                <div
-                                 class="form-check form-check-inline"
+                                 className="form-check form-check-inline"
                                  key={i}
                                >
                                  <Field

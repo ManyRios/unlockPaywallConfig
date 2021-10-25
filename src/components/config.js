@@ -1,6 +1,6 @@
 //Initial form values 
 export const initialValues = {
-  locks: [{ address: "", network: "1", name: "" }],
+  locks: [{ network: "1", address: " ", name: " " }],
   icon: "",
   pessimistic: "false",
   callToAction: {},
@@ -30,17 +30,17 @@ export const calltoAction = {
 //Function to generate JSON
 export async function genJson(value) {
  let locks = {}
- 
  //This code helps to enumerate all the locks added in the form to convert it into an object 
-  value.locks.map(({address, network, name}, i) => ( 
-    Object.defineProperty(locks, `${address}`, {
+  value.locks.map(({address, network, name}, i) => {
+    let net = parseInt(network)
+    return (Object.defineProperty(locks, `${address}`, {
       value: {
-        network: network,
+        network: net,
         name: name
       },
       enumerable: true
-    })
-  ))
+    }))
+  }) 
 
 //this is the object where the final JSON will be generated 
   const unlockPaywall = {
@@ -65,7 +65,7 @@ export async function genJson(value) {
   }
  
   const fin = await JSON.stringify(unlockPaywall, null, 2);
-
+ 
   return fin;
 }
 
@@ -82,7 +82,6 @@ export async function genUrl(value){
   const json = await genJson(value)
   const enconde = await encodeURIComponent(json)
   const uri = `https://app.unlock-protocol.com/checkout?paywallConfig=${enconde}`
-  
   return uri
 }
 
