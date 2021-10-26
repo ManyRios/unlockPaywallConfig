@@ -1,6 +1,6 @@
 //Initial form values 
 export const initialValues = {
-  locks: [{ network: "1", address: " ", name: " " }],
+  locks: [{ name: "", address: "", network: "1" }],
   icon: "",
   pessimistic: "false",
   callToAction: {},
