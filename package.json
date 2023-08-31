@@ -1,6 +1,9 @@
 {
   "name": "unlock-purchase",
   "version": "0.2.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "private": true,
   "homepage": ".",
   "dependencies": {
@@ -40,8 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-    "engines": {
-    "node": ">=18.0.0"
-  },
+  }
 }
