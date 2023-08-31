@@ -53,7 +53,8 @@ export async function genJson(value) {
     callToAction: {
       ...value.calltoAction
     },
-   referrer: value.referrer
+   referrer: value.referrer,
+   recipient: '0xa324Bf98C6e78De39ca780EE06a256421598E766', 
   };
 
 //Same like locks for the metadataInputs 
